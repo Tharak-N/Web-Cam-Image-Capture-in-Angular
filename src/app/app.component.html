@@ -1,0 +1,35 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+
+<div>
+  <span>
+    <video
+      *ngIf="!imageCaptureState"
+      #video
+      id="video"
+      height="100"
+      width="100"
+      autoplay
+    ></video
+  ></span>
+  <span><canvas #canvas id="canvas" width="100" height="100"></canvas></span>
+</div>
+
+<div>
+  <button *ngIf="!imageCaptureState" (click)="capturePhoto()">
+    Snap Photo
+  </button>
+  <button *ngIf="imageCaptureState" (click)="saveCapturePhoto()">
+    Save Photo
+  </button>
+  <p>
+    <button *ngIf="imageCaptureState" (click)="retakePhoto()">
+      Retake Photo
+    </button>
+  </p>
+  <!-- <ul>
+    <li *ngFor="let c of capture">
+      <img src="{{ c }}" height="50" />
+    </li>
+  </ul> -->
+</div>
