@@ -1,18 +1,25 @@
 <hello name="{{ name }}"></hello>
 <p>Start editing to see some magic happen :)</p>
 
-<div>
-  <span>
-    <video
-      *ngIf="!imageCaptureState"
-      #video
-      id="video"
-      height="100"
-      width="100"
-      autoplay
-    ></video
-  ></span>
-  <span><canvas #canvas id="canvas" width="100" height="100"></canvas></span>
+<div class="video-container">
+  <video
+    [class.show]="!imageCaptureState"
+    [class.hide]="imageCaptureState"
+    #video
+    id="video"
+    [width]="WIDTH"
+    [height]="HEIGHT"
+    autoplay
+  ></video>
+
+  <canvas
+    [class.show]="imageCaptureState"
+    [class.hide]="!imageCaptureState"
+    #canvas
+    id="canvas"
+    [width]="WIDTH"
+    [height]="HEIGHT"
+  ></canvas>
 </div>
 
 <div>
